@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Justin Sakwa | Architectural & Spatial Designer · Developer</title>
+  <meta name="description" content="Portfolio of Justin Sakwa (Sir_kwa) - Aspiring Architectural & Spatial Designer, Developer, and Changemaker." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --surface: #121820;
+      --surface-hover: #19222d;
+      --border: #222d3b;
+      --accent: #d4a373; /* Warm architectural terracotta/sand accent */
+      --accent-soft: rgba(212, 163, 115, 0.12);
+      --text: #f1f5f9;
+      --text-muted: #8e9ea7;
+      --font-mono: 'Space Mono', monospace;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(11, 15, 20, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid rgba(212, 163, 115, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6.5rem 0 4.5rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-bio {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 2.2rem;
+      font-weight: 300;
+    }
+
+    .hero-bio strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0b0f14;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+      border-color: var(--accent);
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    /* About Section */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-stat-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem;
+    }
+
+    .stat-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .stat-value {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 0.2rem;
+    }
+
+    /* Disciplines / Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.8rem;
+    }
+
+    .skill-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.35rem 0.7rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-muted);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .project-preview {
+      height: 180px;
+      background: #17212d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .blueprint-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+
+    .project-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-body h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-body p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.2rem;
+      flex-grow: 1;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      text-align: center;
+      padding: 6rem 0;
+    }
+
+    .handle-display {
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .email-container {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+
+    .email-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1rem 1.4rem;
+      border-radius: 6px;
+      text-align: left;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.25s ease;
+      min-width: 280px;
+    }
+
+    .email-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      background: var(--surface-hover);
+    }
+
+    .email-type {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .email-address {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      word-break: break-all;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--surface);
+      transition: all 0.2s ease;
+    }
+
+    .social-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="brand">
+          Justin Sakwa
+          <span class="brand-tag">@Sir_kwa</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#disciplines">Disciplines</a></li>
+          <li><a href="#projects">Work & Concepts</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero" style="border-top: none;">
+      <div class="status-badge">
+        <span class="status-dot"></span> Available for spatial collaborations & projects
+      </div>
+      <h1>Designing spaces.<br>Developing systems.<br><span style="color: var(--accent);">Driving change.</span></h1>
+      <p class="hero-bio">
+        I am <strong>Justin Sakwa</strong>, an aspiring architectural and spatial designer and developer. I operate at the intersection of built environments, digital tools, and community-driven impact.
+      </p>
+      <div class="btn-group">
+        <a href="#projects" class="btn btn-primary">Explore Portfolio</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="section-header">
+        <span class="section-tag">// 01. Context</span>
+        <h2>About Justin Sakwa</h2>
+      </div>
+      <div class="about-layout">
+        <div class="about-text">
+          <p>
+            I see architecture and spatial design not merely as the arrangement of materials, but as a deliberate tool to spark meaningful social and environmental change. 
+          </p>
+          <p>
+            By bridging physical space planning with computational development and digital craft, I seek to design sustainable, functional, and socially conscious environments. Whether thinking through urban interventions, spatial layouts, or interactive digital representations, my objective is always purpose-driven transformation.
+          </p>
+          <p>
+            Across all platforms, you can find me building and sharing my journey under the handle <strong>@Sir_kwa</strong>.
+          </p>
+        </div>
+        <div class="about-stat-box">
+          <div class="stat-item">
+            <div class="stat-label">Core Mission</div>
+            <div class="stat-value">Spatial Equity & Sustainable Change</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Focus Areas</div>
+            <div class="stat-value">Architecture, Spatial Tech, Creative Development</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Online Identity</div>
+            <div class="stat-value">@Sir_kwa</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disciplines -->
+    <section id="disciplines">
+      <div class="section-header">
+        <span class="section-tag">// 02. Expertise</span>
+        <h2>Disciplines & Focus Areas</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Architectural & Spatial Design</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Conceptualizing physical environments with emphasis on spatial flow, contextual dialogue, human experience, and sustainable materials.
+          </p>
+          <div class="skill-tags">
+            <span class="tag">Spatial Layouts</span>
+            <span class="tag">3D Modeling</span>
+            <span class="tag">Concept Ideation</span>
+            <span class="tag">Drafting</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Development & Spatial Tech</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Blending software and creative technology into architectural thinking—from generative design tools to interactive web presentations.
+          </p>
+          <div class="skill-tags">
+            <span class="tag">Web Development</span>
+            <span class="tag">Computational Design</span>
+            <span class="tag">Interactive UI</span>
+            <span class="tag">Digital Prototyping</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Driving Impact & Change</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Advocating for accessible, equitable spaces and sustainable urban ideas that uplift communities and reshape local realities.
+          </p>
+          <div class="skill-tags">
+            <span class="tag">Community Impact</span>
+            <span class="tag">Sustainable Urbanism</span>
+            <span class="tag">Advocacy</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-header">
+        <span class="section-tag">// 03. Selected Work</span>
+        <h2>Projects & Spatial Concepts</h2>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-preview">
+            <span class="blueprint-badge">[ SPATIAL MODEL 01 ]</span>
+          </div>
+          <div class="project-body">
+            <h3>Adaptive Community Pavilion</h3>
+            <p>A modular public spatial concept engineered for communal assembly, ecological ventilation, and local material usage.</p>
+            <div class="skill-tags">
+              <span class="tag">Spatial Design</span>
+              <span class="tag">Social Impact</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-preview">
+            <span class="blueprint-badge">[ COMPUTATIONAL DEV 02 ]</span>
+          </div>
+          <div class="project-body">
+            <h3>Interactive Spatial Visualizer</h3>
+            <p>A web-based interactive tool enabling users to configure spatial floorplans and analyze lighting distribution dynamically.</p>
+            <div class="skill-tags">
+              <span class="tag">Web Development</span>
+              <span class="tag">3D UI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-preview">
+            <span class="blueprint-badge">[ URBAN PROPOSAL 03 ]</span>
+          </div>
+          <div class="project-body">
+            <h3>Urban Infill & Sustainable Living</h3>
+            <p>Exploratory research and conceptual design revitalizing underutilized urban pockets into functional green sanctuaries.</p>
+            <div class="skill-tags">
+              <span class="tag">Architecture</span>
+              <span class="tag">Sustainability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <span class="section-tag">// 04. Connect</span>
+      <h2 style="font-size: 2.2rem; margin: 0.5rem 0 0.8rem;">Let's Build the Future Together</h2>
+      <div class="handle-display">@Sir_kwa</div>
+      <p style="color: var(--text-muted); max-width: 540px; margin: 0 auto;">
+        Whether you have a design inquiry, collaborative spatial project, or want to connect regarding driving change, feel free to write to me directly:
+      </p>
+
+      <!-- Email Options -->
+      <div class="email-container">
+        <a href="mailto:justinejuniour29@gmail.com" class="email-card">
+          <span class="email-type">Primary Email</span>
+          <span class="email-address">justinejuniour29@gmail.com &rarr;</span>
+        </a>
+        <a href="mailto:sakwajustin651@hotmail.com" class="email-card">
+          <span class="email-type">Secondary Email</span>
+          <span class="email-address">sakwajustin651@hotmail.com &rarr;</span>
+        </a>
+      </div>
+
+      <!-- Social Channels -->
+      <div class="social-links">
+        <a href="https://instagram.com/Sir_kwa" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram: @Sir_kwa</a>
+        <a href="https://x.com/Sir_kwa" target="_blank" rel="noopener noreferrer" class="social-btn">X (Twitter): @Sir_kwa</a>
+        <a href="https://github.com/Sir_kwa" target="_blank" rel="noopener noreferrer" class="social-btn">GitHub: @Sir_kwa</a>
+        <a href="https://linkedin.com/in/Sir_kwa" target="_blank" rel="noopener noreferrer" class="social-btn">LinkedIn: @Sir_kwa</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Justin Sakwa (@Sir_kwa). All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
